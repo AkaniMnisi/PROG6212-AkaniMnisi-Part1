@@ -14,4 +14,4 @@ The system supports two distinct roles:
 ![Green Build Screenshot]()
 
 ## Video Presentation
-[Watch the Part 1 Walkthrough on YouTube]()
+[Watch the Part 1 Walkthrough on YouTube](https://youtu.be/UEM8entaMRQ?si=w2CK6xg0mMXFbDrB)
