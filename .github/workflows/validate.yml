@@ -1,0 +1,33 @@
+name: Validate PoE Structure
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  check-files:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Check if /docs folder exists
+      run: |
+        if [ ! -d "docs" ]; then
+          echo "Error: /docs folder is missing!"
+          exit 1
+        fi
+        echo "✅ /docs folder exists."
+
+    - name: Check for Required Files in /docs
+      run: |
+        files=("ERD.png" "Endpoint_Plan.md" "RaceDay_DB.sql")
+        for file in "${files[@]}"; do
+          if [ ! -f "docs/$file" ]; then
+            echo "Error: Missing file docs/$file"
+            exit 1
+          fi
+          echo "✅ Found docs/$file"
+        done
